@@ -24,15 +24,16 @@ bounty or guaranteed response time.
 
 In scope:
 
-- Android shell, wallet bridge, WebView isolation, update verification
-- On-chain Web build and verification paths
-- Build/release scripts in this repository
+- Cloud-sync control plane, authentication/session handling, rate limits, quota
+- Pending uploads, profile/wallpaper pointers, object release and retention
+- TapeRelay signing integration and D1 schema/migrations
+- Worker source and build/deploy scripts in this repository
 
 Out of scope:
 
-- Third-party websites loaded in site windows
-- Compromised wallets, RPC providers, or user devices
-- Social engineering and physical access
+- Android shell, Web frontend, browser or wallet implementations
+- Third-party RPC, storage, or wallet providers
+- Compromised user devices, social engineering, and physical access
 
 Never include private keys, seed phrases, session tokens, or exported browser
 profiles in a report.
