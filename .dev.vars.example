@@ -1,0 +1,3 @@
+# Do not commit this file. Set the real secret with:
+# wrangler secret put TAPERELAY_KEY
+TAPERELAY_KEY=trk1_replace_me

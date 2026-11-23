@@ -1,0 +1,14 @@
+{
+  "name": "deweb-cloud-worker",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "dependencies": {
+    "@taperelay/client": "^0.1.0-test.132",
+    "@tapestore/client": "^0.1.0-test.132",
+    "ethers": "^6.13.4"
+  },
+  "devDependencies": {
+    "wrangler": "^4.0.0"
+  }
+}

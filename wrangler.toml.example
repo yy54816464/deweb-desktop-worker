@@ -1,0 +1,39 @@
+# Copy to wrangler.toml and replace placeholders for your own deployment.
+# Never commit the real wrangler.toml if it contains account-specific IDs.
+name = "deweb-cloud"
+main = "src/index.mjs"
+compatibility_date = "2026-11-15"
+compatibility_flags = ["nodejs_compat"]
+workers_dev = true
+
+routes = [
+  { pattern = "api.example.com", custom_domain = true }
+]
+
+[vars]
+XLAYER_RPCS = "https://rpc.xlayer.tech,https://xlayer.drpc.org,https://196.rpc.thirdweb.com/"
+ALLOWED_ORIGINS = "https://app.example.com"
+CIRCUIT_PRO_RESOLVER = "0xd86fBB4Db54FCc2F5Be19F699b020d614998f59f"
+# 0 = keep wallpaper on R2 until TapeRelay read latency is acceptable
+TAPERELAY_WALLPAPER = "0"
+ALPHA_FREE_PRO_UNTIL = "2026-12-31T15:59:59Z"
+# Daily D1 write budget for tape register/sign/finish; auth/rate rows keep headroom.
+TAPE_WRITE_BUDGET = "500000"
+
+[triggers]
+crons = ["17 3 * * *"]
+
+[[d1_databases]]
+binding = "DB"
+database_name = "deweb-cloud"
+database_id = "REPLACE_WITH_YOUR_D1_DATABASE_ID"
+
+[[ratelimits]]
+name = "READ_RATE"
+namespace_id = "1001"
+simple = { limit = 120, period = 60 }
+
+[[ratelimits]]
+name = "MEMBER_RATE"
+namespace_id = "1003"
+simple = { limit = 12, period = 60 }
